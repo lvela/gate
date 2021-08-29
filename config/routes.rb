@@ -7,4 +7,11 @@ Rails.application.routes.draw do
 	get '/logout' => 'sessions#destroy'
 
   get '/home'      => 'home#index'
+
+  resource :gate, only: [], controller: 'gate' do
+    collection do
+      post :open
+      get :open
+    end
+  end
 end
