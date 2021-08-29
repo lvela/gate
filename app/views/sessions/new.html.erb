@@ -1,14 +1,16 @@
-<h1>Log In</h1>
-<%= form_for :login do |f| %>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email, autofocus: true %>
-  </div>
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.submit "Log In" %>
-  </div>
-<% end %>
+<h2>Log In</h2>
+<div class="w-full max-w-xs mx-auto">
+  <%= form_for :login, html: { class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" } do |f| %>
+    <div class="mb-4">
+      <%= f.label :email, class: "block text-grey-darker text-sm font-bold mb-2" %>
+      <%= f.text_field :email, autofocus: true, class: "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" %>
+    </div>
+    <div class="mb-4">
+      <%= f.label :password, class: "block text-grey-darker text-sm font-bold mb-2" %>
+      <%= f.password_field :password, class: "shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" %>
+    </div>
+    <div>
+      <%= f.submit "Log In", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    </div>
+  <% end %>
+</div>
