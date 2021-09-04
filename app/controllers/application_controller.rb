@@ -3,7 +3,11 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
 
-  before_action :authorize
+  before_action :redirect_to_https, :authorize
+
+  def redirect_to_https
+    redirect_to :protocol => "https://" unless (request.ssl? || request.local?)
+  end
 
   def authorize
     redirect_to login_path, alert: 'Please login.' if current_user.nil?
